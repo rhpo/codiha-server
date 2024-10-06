@@ -6,6 +6,12 @@ require('dotenv').config();
 
 const app = express();
 
+app.all('/', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+});
+
 // https://forms.gle/PjWuis7pUGidavpm6
 
 async function notify(apiKey, title = "You got a new registration", message = "We have a new registration on our website",
